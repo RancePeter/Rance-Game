@@ -1,0 +1,699 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>README</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='rance-game'><span>Rance Game</span></h1><p><span>目前打算使用Unity进行类似《火山的女儿》养成类回合游戏。后宫，简单回合制战斗，主要使用Fungus对话插件，暂时不打算配音，需要有背景音乐。需要设计插入小游戏互动。10个立绘，表情差分，live2D动态设计。需要有英文翻译，后续安排日文角色部分语音。</span></p><p><span>还需要有开头出场动画，需要学习PR制作视频。需要学习美术外包等级划分，学习steam发售，需要B站更新动态招募1-2个小伙伴。最好游戏时间但周目设置在3-10个小时左右26-35块钱，添加一些R16元素。为多周目提供环境。时间从2025年7月立项</span></p><p><span>美少女，对战，养成，多女角色，模拟养成为主、RPG为辅</span></p><h2 id='项目大概'><span>项目大概</span></h2><blockquote><figure class='table-figure'><table><thead><tr><th><span>故事背景</span></th><th><span>登场人物</span></th><th><span>故事详细</span></th></tr></thead><tbody><tr><td><span>货币系统</span></td><td><span>战斗系统</span></td><td><span>人物对话</span></td></tr><tr><td><span>场景设计</span></td><td><span>对话插件/存档管理</span></td><td><span>人物立绘</span></td></tr><tr><td><span>背景音乐</span></td><td><span>Live 2D</span></td><td><span>人物表情差分</span></td></tr></tbody></table></figure><hr /><p><span>对话插件，存档管理插件，战斗模式插件</span></p><p><span>明确游戏循环（日程安排→属性养成→事件触发→结局分支）</span></p><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><strong><span>阶段</span></strong></th><th style='text-align:left;' ><strong><span>重点内容</span></strong></th><th style='text-align:left;' ><strong><span>工具/插件</span></strong></th><th style='text-align:left;' ><strong><span>资源链接示例</span></strong></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>基础准备</span></td><td style='text-align:left;' ><span>Unity操作、场景搭建</span></td><td style='text-align:left;' ><span>无</span></td><td style='text-align:left;' ><span>B站：M_Studio入门系列</span></td></tr><tr><td style='text-align:left;' ><span>养成系统</span></td><td style='text-align:left;' ><span>时间管理、属性成长</span></td><td style='text-align:left;' ><span>Odin Inspector</span></td><td style='text-align:left;' ><span>YouTube：Code Monkey时间管理</span></td></tr><tr><td style='text-align:left;' ><span>对话叙事</span></td><td style='text-align:left;' ><span>分支剧情、动态对话</span></td><td style='text-align:left;' ><span>Dialogue System for Unity</span></td><td style='text-align:left;' ><span>B站：对话系统插件教程</span></td></tr><tr><td style='text-align:left;' ><span>存档读档</span></td><td style='text-align:left;' ><span>快照存档、多周目</span></td><td style='text-align:left;' ><span>Easy Save 3</span></td><td style='text-align:left;' ><span>[Easy Save官方文档]5</span></td></tr><tr><td style='text-align:left;' ><span>战斗实现</span></td><td style='text-align:left;' ><span>回合制逻辑、属性克制</span></td><td style='text-align:left;' ><span>状态机脚本</span></td><td style='text-align:left;' ><span>B站：回合制战斗速成</span></td></tr><tr><td style='text-align:left;' ><span>高级扩展</span></td><td style='text-align:left;' ><span>结局网、多平台发布</span></td><td style='text-align:left;' ><span>Unity Timeline/Steam SDK</span></td><td style='text-align:left;' ><span>Udemy：2D RPG全流程</span></td></tr></tbody></table></figure><p><strong><span>进阶课程</span></strong><span>：</span></p><ul><li><p><span>Udemy《Complete 2D RPG in Unity》（18小时全流程开发）</span></p></li><li><p><strong><span>美术资源获取</span></strong><span>：</span></p><ul><li><p><span>角色立绘：AI生成（参考之前的Prompt设计）+ 商用素材站（itch.io、Kenney）。</span></p></li><li><p><span>音乐音效：FreeSound.org + BGMer（自动生成氛围音乐）。</span></p></li></ul></li><li><p><strong><span>UGUI 界面渲染</span></strong><span>：</span>
+<span>游戏内的对话框、按钮、血条等 UI 元素使用 Unity 的 </span><strong><span>Canvas 系统</span></strong><span>，其层级管理（Sorting Layer）和分辨率自适应是 UGUI 的典型特征。</span></p><ol start='' ><li><p><strong><span>模拟养成系统</span></strong></p><ul><li><p><strong><span>时间管理与日程系统</span></strong><span>：</span></p><ul><li><p><span>实现游戏内日期推进、时间槽分配（如学习/打工/社交）。</span></p></li><li><p><strong><span>教程推荐</span></strong><span>：YouTube《Time Management System in Unity》（Code Monkey）2。</span></p></li></ul></li><li><p><strong><span>属性养成与事件触发</span></strong><span>：</span></p><ul><li><p><span>使用</span><code>ScriptableObject</code><span>定义角色属性（智力/魅力/武力）及事件条件8。</span></p></li><li><p><strong><span>插件辅助</span></strong><span>：Odin Inspector（可视化编辑数据配置）。</span></p></li></ul></li></ul></li><li><p><strong><span>对话与叙事系统</span></strong></p><ul><li><p><strong><span>分支对话实现</span></strong><span>：</span></p><ul><li><p><strong><span>必备插件</span></strong><span>：Dialogue System for Unity（支持分支逻辑、任务绑定）4。</span></p></li><li><p><strong><span>教程重点</span></strong><span>：</span></p><ul><li><p><span>B站《Unity对话系统插件全解析》（含NPC对话树、选项影响好感度）。</span></p></li><li><p><span>实现“关键抉择影响剧情走向”（如瑟琳娜复仇线分支）4。</span></p></li></ul></li></ul></li><li><p><strong><span>动态叙事扩展</span></strong><span>：</span></p><ul><li><p><span>整合ChatGPT API实现NPC动态对话（参考Unity+Whisper+GPT教程）10。</span></p></li></ul></li></ul></li><li><p><strong><span>存档与读档系统</span></strong></p><ul><li><p><strong><span>自动化快照存档</span></strong><span>：</span></p><ul><li><p><strong><span>插件方案</span></strong><span>：Easy Save 3（自动保存场景状态、角色属性）5。</span></p></li><li><p><strong><span>关键配置</span></strong><span>：</span></p><ul><li><p><span>设置关键节点自动存档（如日程结束日、剧情抉择点）。</span></p></li><li><p><span>优化存档卡顿：仅保存必要数据（如排除实时动画状态）5。</span></p></li></ul></li></ul></li><li><p><strong><span>多周目支持</span></strong><span>：</span></p><ul><li><p><span>设计存档数据结构包含“周目计数”“结局解锁标记”。</span></p></li></ul></li></ul></li><li><p><strong><span>RPG养成模块</span></strong></p><ul><li><p><strong><span>角色成长系统</span></strong><span>：</span></p><ul><li><p><span>属性升级→技能解锁（如艾薇拉魔法研究解锁高阶技能）。</span></p></li><li><p><strong><span>教程推荐</span></strong><span>：YouTube《RPG Character Progression in Unity》（Blackthornprod）8。</span></p></li></ul></li><li><p><strong><span>道具与经济系统</span></strong><span>：</span></p><ul><li><p><span>背包实现：Inventory Engine插件（支持拖拽、分类、合成）8。</span></p></li><li><p><span>经济循环：设计“打工赚金币→购买课程/礼物”链路。</span></p></li></ul></li></ul></li><li><p><strong><span>轻量级战斗系统</span></strong></p><ul><li><p><strong><span>回合制战斗基础</span></strong><span>：</span></p><ul><li><p><strong><span>教程参考</span></strong><span>：B站《Unity回合制战斗系统》（30分钟速成）6。</span></p></li><li><p><strong><span>关键实现</span></strong><span>：</span></p><ul><li><p><span>状态机管理战斗流程（玩家回合→选择技能→敌人行动）8。</span></p></li><li><p><span>属性克制：火魔法（瑟琳娜）对植物系敌人增伤6。</span></p></li></ul></li></ul></li><li><p><strong><span>战斗与养成关联</span></strong><span>：</span></p><ul><li><p><span>胜利奖励“战斗经验”用于提升武力属性，影响结局。</span></p></li></ul></li></ul></li><li><p><strong><span>多角色互动与好感度</span></strong></p><ul><li><p><strong><span>好感度系统</span></strong><span>：</span></p><ul><li><p><span>事件影响好感（如送礼+5，任务失败-10）。</span></p></li><li><p><strong><span>可视化工具</span></strong><span>：Unity Timeline制作角色互动过场动画8。</span></p></li></ul></li><li><p><strong><span>结局网设计</span></strong><span>：</span></p><ul><li><p><span>使用流程图工具（如Miro）规划50+结局触发条件（属性值+关键事件+好感组合）。</span></p></li></ul></li></ul></li><li><p><strong><span>性能与发布优化</span></strong></p><ul><li><p><strong><span>移动端适配</span></strong><span>：</span></p><ul><li><p><span>优化UI响应：Canvas分层+图集打包。</span></p></li><li><p><span>减少Draw Call：Sprite Atlas整合精灵3。</span></p></li></ul></li><li><p><strong><span>发布流程</span></strong><span>：</span></p><ul><li><p><span>多平台输出：Android/iOS（Unity Build Settings设置）；PC端打包Steam9。</span></p></li></ul></li></ul></li></ol><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><span>游戏表现</span></th><th style='text-align:left;' ><span>Unity 对应技术</span></th><th style='text-align:left;' ><span>证据示例</span></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>角色边缘柔光</span></td><td style='text-align:left;' ><span>URP 的 </span><strong><span>Bloom 后处理</span></strong></td><td style='text-align:left;' ><span>角色轮廓泛光（如下图↓）</span></td></tr><tr><td style='text-align:left;' ><span>动态日夜光影变化</span></td><td style='text-align:left;' ><strong><span>Light Probes + Timeline</span></strong></td><td style='text-align:left;' ><span>场景光照随剧情时间渐变</span></td></tr><tr><td style='text-align:left;' ><span>2D 精灵（Sprite）动画</span></td><td style='text-align:left;' ><strong><span>Sprite Renderer</span></strong><span> 组件</span></td><td style='text-align:left;' ><span>角色帧动画由多张 Sprite 组成</span></td></tr></tbody></table></figure></li></ul></blockquote><h3 id='故事背景'><span>故事背景</span></h3><blockquote><p><span>发生在赛昆斯特城镇的故事。地下城魔物魔将军即将诞生。男主苏醒，失去记忆，是一个刚经历过高考的高中生，得到原主记忆。</span></p><p><span>故事有三条路线选择：（需要制作各种失败结局分支。增加多支线丰富度）</span></p><ol start='' ><li><p><span>博爱后宫领主线：跟主要角色好感度越高，爱的互动获得属性值高，真结局。仁慈 ≥ 10</span></p></li><li><p><span>霸王奴隶主线：掠夺能力者，支配度，夺取纯洁数量，爽线。冷酷 ≥ 10，成为奴隶主，将女角色全部契约奴隶。</span></p></li><li><p><span>单骑贵族线：抵抗各种骑脸输出，保持单身，坚定意志，拒绝数量，虐线。仁慈 = 冷酷</span></p></li></ol><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><ol start='' ><li><p><span>让奴隶主早前炫耀过“魔族宝珠”（实为地下城城门钥匙，复活魔将军关键），这样后续灭门就自然衔接主线。</span></p></li><li><p><span>角色能力值有天赋上限，角色稀有度。</span></p></li><li><p><span>所有女性角色都设计双重作用：既是情感线对象，又是功能性NPC（如魔法师提供炼金术）。需要制作好感度事件</span></p></li><li><p><span>设置“魔将军复活倒计时”（增加紧迫感）；</span></p></li><li><p><span>加入“势力声望系统”（处理不同结局分支）。这样基本能覆盖全部需求点。</span></p></li><li><p><span>给男主增加“天赋觉醒”（好感度系统）；</span></p></li></ol></div></blockquote><h3 id='故事梗概'><span>故事梗概</span></h3><blockquote><h4 id='-核心脉络强化双线驱动-'><span>** 核心脉络强化：双线驱动 **</span></h4><ul><li><p><strong><span>明线</span></strong><span>：男主雷克斯（可自定名）的逆袭之路（奴隶→战士/奴隶主→领主）出场13岁</span></p></li><li><p><strong><span>暗线</span></strong><span>：魔将军的阴谋，地下城能量波动影响人间势力）</span></p></li></ul><h4 id='主线'><span>主线：</span></h4><p><span>地下城涌现大量魔物。威胁城镇安全。魔将军诞生，攻略地下城，击败地下城主魔将军【骸骨暴君】卓恩家族先祖宝珠持有者。</span></p><ol start='' ><li><p><span>从奴隶地牢，剧情杀当晚被刺杀，回档找出杀手，青梅竹马【紫罗兰】</span><strong><span>艾莉娅</span></strong><span>发高烧（由于连续使用能力治愈男主）急需治病。（治愈，能力缓慢成长），打遍地牢奴隶（选择虐待/善待）能力得到增长，获取铜币，贿赂狱卒，狱卒贪心只获得获取药草，女配1（药剂师）帮助配药，（二周目方式闯出地牢，寻找药物）掌管地牢，每天安排参加地下竞技场。贿赂主持人等，参与赌博。</span></p></li><li><p><span>地下城擂台夺冠，被贵族奴隶主的女2千金小姐看上，声望增加</span></p></li><li><p><strong><span>「烈火蝶」卓恩·瑟琳娜</span></strong><span>：贵族卓恩奴隶主之女，以主角为赌注赢得比赛后，希望使其成为私人护卫，其父不让，反复央求，提出条件：参加死亡率超90%的「骸骨竞技场」。/【勇士斗兽场】男主与女2互动</span></p></li></ol><p><strong><span>事件</span></strong><span>：决赛对决兽化奴隶（实为魔将军实验体），霸王线觉醒“吞噬天赋”（可吸收击杀敌人部分能力）/ 后宫线觉醒“羁绊星盘”，跟异性角色好感度越高，双方共同获得相应基础能力能力值加成</span></p><ol start='4' ><li><p><span>竞技场存活，前三名不同奖励。进入护卫队进行锻炼，击败卫女配2</span><strong><span>「铁玫瑰」蕾欧娜</span></strong><span>队长，暗中放水，消除奴隶身份，获得自由，期间努力赚钱赎出青梅，根据好感度不同金币1-10，赚金币（偷窃，赌博，酒馆打工，竞技场压赌）</span></p></li><li><p><span>城镇打工期间认识城内天才</span><strong><span>奥薇拉</span></strong><span>魔法师。解救贫民窟少女</span><strong><span>利维娅</span></strong><span>（偷窃，探查，地下城陷阱），赌馆解救千术少女（需要给姐妹取名字西幻）（赌术，忍术，妹妹精算，运营），娼馆老街解救花魁（魅惑）（取名字）</span></p></li><li><p><span>奴隶主被仇人灭族，真族之宝 “魔族宝珠” 被抢夺（可以躲避逃跑，也可以抵御成功直接坐拥贵族宅院千金代理（胁迫奴役/好感安抚））众人逃生到贫民窟住在小巷子房间（盗贼家中）</span></p></li><li><p><span>找到仇人，帮女主报仇，奴役仇人家族女眷（女配，仇人千金，卡尔玛）。</span></p></li><li><p><span>教廷骑士少女</span><strong><span>赛菲莉亚</span></strong><span>出现，开启地下城攻略/第一步</span></p></li><li><p><span>开启商会，奴隶和特殊物品</span></p></li><li><p><span>参与地下竞技场，培养奴隶打手 </span></p></li><li><p><span>得罪对手，对战帮会</span></p></li><li><p><span>成功攻略地下城，被皇室授勋晋升贵族，</span></p></li><li><p><span>对战城镇家族，晋升领主</span></p></li></ol></blockquote><h5 id='场景搭建'><span>场景搭建</span></h5><blockquote><p><span>卓恩家族宅院，出场地——1. 牢房 2. 奴隶竞技场 3. 训练场 4. 府邸——自宅，小姐房间，老爷房间，卫队长房间</span></p><p><span>老街——1. 娼馆（花魁，买春）2. 赌馆（千术救妹）3. 酒馆，女仆，密室 4. 贫民窟，霸凌少女，偷窃</span></p><p><span>贵族宅院1 「赤牙」家族——1. 庭院 2. 府邸——房间/密室 3. 后花园 4. 奴隶牢房  灭族事件，复活魔将军</span></p><p><span>贵族宅院2 「银流」家族，争夺黑市权力</span></p><p><span>贵族城堡3 「金玺」家族，争夺领主之位</span></p><p><span>教会——大恢复术，驱魔，开启地下城</span></p><p><span>法师公会——学习法术，法师入队</span></p><p><span>黑市——1. 地下角斗场 2. 勇士斗兽场 3. 地下拍卖会</span></p><p><span>魔物森林——一些事件</span></p><p><span>地下城遗迹——探索，击败魔将军</span></p><hr /><p>&nbsp;</p><h3 id='新增高光设定'><strong><span>新增高光设定</span></strong></h3><ul><li><p><strong><span>「魔核熔炉」</span></strong><span>：主角心脏被植入魔族装置（解释吞噬能力），最终战可选择自爆同归于尽或剥离保命</span></p></li><li><p><strong><span>「勇者女4」真相</span></strong><span>：教会派出的清除者（视主角为魔族威胁），好感高可反叛教会</span></p></li></ul><h5 id='好感度系统后宫结局）'><strong><span>好感度系统</span></strong><span>（后宫结局）</span></h5><ol start='' ><li><p><strong><span>「羁绊晶盘」机制</span></strong></p><ul><li><p><span>每位女主有专属技能树，通过好感事件解锁：</span></p><ul><li><p><strong><span>艾莉娅</span></strong><span>：神圣领域（团队魔抗提升）</span></p></li><li><p><strong><span>奥薇拉</span></strong><span>：奥术洪流（对魔物特攻）</span></p></li><li><p><strong><span>灵雀</span></strong><span>：命运骰子（战斗随机增益）</span></p></li></ul></li></ul></li></ol></blockquote><h4 id='剧情发展'><span>剧情发展</span></h4><blockquote><p><span>	</span><span>分支路线，优先制作一周目后宫结局线</span></p><ol start='' ><li><p><strong><span>灭门夜的血与月</span></strong></p><ul><li><p><strong><span>仇家身份</span></strong><span>：商业对手「血爪商会」会长（实为魔将军人间代理人）</span></p></li><li><p><span>用魔族科技改造人类（制造竞技场怪物）</span></p></li><li><p><strong><span>仇人千金「女配3」</span></strong><span>：被父亲改造成半魔兵器（可捕获净化）</span></p></li><li><p><strong><span>动态事件</span></strong><span>：</span></p><ul><li><p><strong><span>选项A（潜行）</span></strong><span>：救出瑟琳娜，她目睹家族惨状精神崩溃</span></p></li><li><p><strong><span>选项B（反杀）</span></strong><span>：联手蕾欧娜歼灭刺客，瑟琳娜觉醒冰魔法天赋</span></p></li></ul></li><li><p><strong><span>核心奖励</span></strong><span>：</span></p><ul><li><p><span>获得贵族府邸控制权（可改造为基地）</span></p></li><li><p><span>解锁瑟琳娜「黑化/救赎」分支线</span></p></li></ul></li></ul></li><li><p><strong><span>娼馆与赌场的暗网</span></strong></p><ul><li><p><strong><span>娼馆花魁「夜莺」</span></strong><span>：情报贩子，掌握仇家女眷贩卖线索</span></p></li><li><p><strong><span>赌场千术少女「灵雀」</span></strong><span>：</span></p><ul><li><p><span>被迫为仇家赌博敛财，妹妹被扣为人质</span></p></li><li><p><span>传授“概率操控”（战斗可触发暴击/闪避概率翻倍）</span></p></li><li><p><strong><span>势力结局分支</span></strong></p><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><strong><span>关键选择</span></strong></th><th style='text-align:left;' ><strong><span>结局倾向</span></strong></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>奴役仇人女眷 vs 给予救赎</span></td><td style='text-align:left;' ><span>黑暗军阀 / 革新领主</span></td></tr><tr><td style='text-align:left;' ><span>隐瞒魔王情报 vs 公开警告</span></td><td style='text-align:left;' ><span>孤城之王 / 联盟领袖</span></td></tr></tbody></table></figure></li></ul></li></ul></li></ol></blockquote><h3 id='出场人物'><span>出场人物</span></h3><blockquote><p><span>立绘设计</span></p><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><strong><span>角色名</span></strong><span> (发色)</span></th><th style='text-align:left;' ><span>职业</span></th><th style='text-align:left;' ><strong><span>性格</span></strong></th><th style='text-align:left;' ><strong><span>剧情功能</span></strong></th></tr></thead><tbody><tr><td style='text-align:left;' ><strong><span>露西亚</span></strong><span> (紫)</span></td><td style='text-align:left;' ><span>牧师（法杖）</span></td><td style='text-align:left;' ><span>柔弱，智慧，病娇，黑化</span></td><td style='text-align:left;' ><span>1. 地下城净化魔气抵御腐蚀。2. 帮助男主善后，心思细腻。 3. 冒险队牧师，被动增加属性。</span></td></tr><tr><td style='text-align:left;' ><strong><span>艾薇拉</span></strong><span> (蓝)</span></td><td style='text-align:left;' ><span>魔女（魔法书）</span></td><td style='text-align:left;' ><span>三无少女，无口·无心·无表情</span></td><td style='text-align:left;' ><span>1. 魔核奥秘破解者，后期可改造主角能力形态。2.  研究主角“吞噬天赋”的奥秘 3. 冒险队法师，后期提供高额输出。</span></td></tr><tr><td style='text-align:left;' ><strong><span>瑟琳娜</span></strong><span> (红)</span></td><td style='text-align:left;' ><span>火魔法师</span></td><td style='text-align:left;' ><span>傲娇，口是心非，外冷内热</span></td><td style='text-align:left;' ><span>1. 帮助主角恢复自由之身，报仇事件。 2. 复仇线关键决策者，火魔法可进化出“涅槃”复活技能。 3.</span></td></tr><tr><td style='text-align:left;' ><strong><span>玛丽莎</span></strong><span> (绿)</span></td><td style='text-align:left;' ><span>药剂师</span></td><td style='text-align:left;' ><span>毒舌，算计，心机，</span></td><td style='text-align:left;' ><span>1. 配置各种药剂，战斗使用。 2. 提供魔物/魔将军弱点的特殊药剂。3. 拍卖会售卖。</span></td></tr><tr><td style='text-align:left;' ><strong><span>欧若拉</span></strong><span> (褐)</span></td><td style='text-align:left;' ><span>花魁/魅惑/情报/预言</span></td><td style='text-align:left;' ><span>腹黑，魅魔</span></td><td style='text-align:left;' ><span>1. 贵族灭门案唯一预知者，2. 掌握仇家与魔族交易证据。 3. 天然魅惑，娼馆，情报中枢</span></td></tr><tr><td style='text-align:left;' ><strong><span>爱丽丝</span></strong><span> (金)</span></td><td style='text-align:left;' ><span>酒馆侍女/隐藏勇者</span></td><td style='text-align:left;' ><span>元气娘</span></td><td style='text-align:left;' ><span>1. 觉醒后圣光可烧灼魔族宝珠 2. 隐藏的看板娘大佬，真勇者。 3. 酒馆打工事件</span></td></tr><tr><td style='text-align:left;' ><strong><span>希露菲</span></strong><span> (青)</span></td><td style='text-align:left;' ><span>斥候/盗贼/弓箭手</span></td><td style='text-align:left;' ><span>软妹，撒娇，可爱</span></td><td style='text-align:left;' ><span>1. 城镇偷窃。2. 冒险斥候，地下城探查/开锁/抄近路。</span></td></tr><tr><td style='text-align:left;' ><strong><span>塞勒涅</span></strong><span> (黑)</span></td><td style='text-align:left;' ><span>千术师/赌术/忍者/苦无/陷阱</span></td><td style='text-align:left;' ><span>黑长直，直女，热情，挚爱，有点笨</span></td><td style='text-align:left;' ><span>1. 赌博作弊。 2. 刺杀，苦无能切断魔能导线。 3. 冒险忍者，苦无飞镖，陷阱拆除。4. 救出其妹妹莉维娅。</span></td></tr><tr><td style='text-align:left;' ><strong><span>露娜莉</span></strong><span> (黄)</span></td><td style='text-align:left;' ><span>商业天才/竞技场运营</span></td><td style='text-align:left;' ><span>言行跳脱·神秘主义，电波女</span></td><td style='text-align:left;' ><span>1. 赌场资金战统帅，调控全城经济命脉。2. 可买通魔族内应。</span></td></tr><tr><td style='text-align:left;' ><strong><span>安洁莉卡</span></strong><span> (白)</span></td><td style='text-align:left;' ><span>教廷骑士/剑盾（天使残魂）</span></td><td style='text-align:left;' ><span>正义，沉稳，反差萌，萝莉体质，天然呆</span></td><td style='text-align:left;' ><span>1. 教会黑幕突破点，当天使意志压制本体时将无差别净化。 2. 上级派遣，天使残魂，圣炎裁决，开启地下城任务。3. 修道院卫士，教廷骑士，圣殿骑士王，三个等阶</span></td></tr><tr><td style='text-align:left;' ><strong><span>蕾欧娜</span></strong><span> (橙)</span></td><td style='text-align:left;' ><span>护卫队长/重剑战士</span></td><td style='text-align:left;' ><span>冰山，严肃人，认真，</span></td><td style='text-align:left;' ><span>1. 帮助主角恢复自由之身。 2. 魔族卧底证据的关键持有者，提供魔族情报，引导复仇。 3. 重剑可劈开魔能屏障。</span></td></tr><tr><td style='text-align:left;' ><strong><span>维罗妮卡</span></strong><span> (粉)</span></td><td style='text-align:left;' ><span>仇家军师/诅咒人偶（暂名</span><strong><span>莱拉</span></strong><span>）</span></td><td style='text-align:left;' ><span>强势·高支配力，女王</span></td><td style='text-align:left;' ><span>1. 仇人实验室密码的活体钥匙，可转化为魔将军精神攻击导体。 2. 灭族事件设计者。</span></td></tr><tr><td style='text-align:left;' ><strong><span>卡洛琳</span></strong><span> (银)</span></td><td style='text-align:left;' ><span>2家族卫队长</span></td><td style='text-align:left;' ><span>管家</span></td><td style='text-align:left;' ><span>1. 灭族事件领导者。</span></td></tr><tr><td style='text-align:left;' ><strong><span>伊莎贝拉</span></strong><span> (白)</span></td><td style='text-align:left;' ><span>教廷修女（</span><strong><span>审判官</span></strong><span>）</span></td><td style='text-align:left;' ><span>大姐姐</span></td><td style='text-align:left;' ><span>1. 提供教会人体实验档案，圣水可暂时抑制主角魔核暴走</span></td></tr><tr><td style='text-align:left;' ><span>卓恩 （Zorn）</span></td><td style='text-align:left;' ><span>「黑棘」家族/奴隶主卓恩/德语“愤怒”</span></td><td style='text-align:left;' >&nbsp;</td><td style='text-align:left;' ><span>1. 主角开局家族，男爵贵族奴隶主。</span></td></tr><tr><td style='text-align:left;' ><span>克罗夫特（Croft）</span></td><td style='text-align:left;' ><span>「赤牙」家族/2号家族 嗜血</span></td><td style='text-align:left;' >&nbsp;</td><td style='text-align:left;' ><span>1. 灭族事件的家族元凶。魔族奸细家族，祖上与魔族相关</span></td></tr><tr><td style='text-align:left;' ><span>阿让托 (Argento)</span></td><td style='text-align:left;' ><span>「银流」家族/3号家族白银</span></td><td style='text-align:left;' >&nbsp;</td><td style='text-align:left;' ><span>1. 灭族事件背后支持者，受益家族</span></td></tr><tr><td style='text-align:left;' ><span>奥雷利乌斯（Aurelius）</span></td><td style='text-align:left;' ><span>「金玺」家族/4号家族 黄金</span></td><td style='text-align:left;' >&nbsp;</td><td style='text-align:left;' ><span>1. 冷眼旁观，最终决战BOSS家族，子爵等阶贵族，准领主家族</span></td></tr></tbody></table></figure></blockquote><h4 id='人物特性'><span>人物特性</span></h4><ol start='' ><li><p><strong><span>露西亚</span></strong><span>「紫罗兰」(紫)</span></p></li></ol><blockquote><p><span>出场11岁，青梅竹马（治愈系能力：赛昆斯特城附近的尼丘村，村庄男性被魔兽屠杀，成年女性被掠走，孩童被奴隶贩子售卖到城镇。从小和男主一起长大，亲眼目睹悲剧的发生，大受打击，失去一切的痛楚让女孩觉醒献祭能力，有男主陪伴在身边，一起经历苦难，将男主视为比生命更重要的人。在地牢不忍男主受到伤害，但苦于自身能力，只能默默每日为男主献祭，恢复男主伤势。</span></p><p><span>TAG：病娇 自残绷带 奴隶锁链 献祭符文 紫水晶法杖 黑化差分</span></p><p><span>	</span><span> • 表面温柔治愈，实则擅用通过献祭治愈男主伤势</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.35913px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">• 因过度共情常偷偷自残，抖M，柔弱，智慧，病娇，黑化，对某事物的极度喜爱于娇羞状态下的精神疾病，而黑化是指精神切<span class="cm-tab" role="presentation" cm-text="	">   </span>换至阴暗人格，，做出于平时形象不符的极端行为）</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre></blockquote><ol start='2' ><li><p><strong><span>瑟琳娜</span></strong><span>「烈火蝶」 (红)</span></p></li></ol><blockquote><p><span>出场12岁，傲娇，口是心非·外冷内热，平常说话带刺态度强硬高傲，但在一定的条件下害羞地黏腻在身边，红头发双马尾，呆毛）</span></p><p><span>男爵卓恩·莱斯特唯一女儿，男爵由于妻子死于难产，对女儿十分疼爱，卓恩家族千金。在奴隶竞技场注意到主角的优秀表现，想要将男主收为贴身侍卫，对男主事事倾向包庇，在之后的挑战多次帮助男主提供情报和技能。在被灭族之后，更是将男主视为生命唯一的光，拼命练习魔法，辅佐男主。并不希望男主为自己报仇而深陷威胁，不希望失去最后的亲人。</span></p><p><span>TAG: 傲娇双马尾</span><code></code><span>熔岩披风</span><code></code><span>遗骨吊坠</span><code></code><span>不对称袜</span><code></code><span>火翼爆发</span></p><p><span>	</span><span> • 贵族式傲慢下藏自卑（火魔法源自母亲临终诅咒） • 被攻略后后会抱着主角哭诉灭门噩梦</span></p></blockquote><ol start='3' ><li><p><strong><span>玛丽莎</span></strong><span>「蝮蛇」(绿)</span></p></li></ol><blockquote><p><span>出场13岁，药剂师，毒舌，算计，对人充满怀疑，但心地善良，总是用很少的话来吐槽某事或某人。</span></p><p><span>行医药师女儿，一家人一直行善积德，由于善良的父母在旅行路过魔物森林被雇佣护卫队抛弃被魔兽击杀，她被拐卖到赛昆斯特城。</span></p><p><span>TAG： 毒藤缠绕 护目镜 双标药剂瓶 皮质束腰 蛇系冷笑</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">• 救平民时免费赠药，对仇家下慢性剧毒 • 对男主逐渐放下防备心理</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre></blockquote><ol start='4' ><li><p><strong><span>艾薇拉</span></strong><span>「星瞳」(蓝)</span></p></li></ol><blockquote><p><span>魔法师（三无少女，无口·无心·无表情，指沉默寡言、缺乏面部表情、难以被窥知心理，话不多但一旦说话就是关键解说）</span></p><p><span>出场8岁，法师公会百年难遇的魔法天才，小小年纪就能够释放二阶魔法，但是父母痴迷研究魔法，疏于养育，从小独立的女孩被寄养在偏僻的城镇，从此也将自己内心冰封，痴迷感情画本，感情缺失，对外界变化几乎无反馈。在遇见学习魔法的男主之后逐渐发生变化。</span></p><p><span>TAG: 三无 齿轮瞳孔 魔法书颜文字 画本彩蛋 星尘特效</span></p><p><span>	</span><span>• 为研究魔法可冷静解剖活体魔物 • 私下痴迷看甜腻画本剧情</span></p></blockquote><ol start='5' ><li><p><strong><span>爱丽丝</span></strong><span>(金)</span></p></li></ol><blockquote><p><span>酒馆侍女，出场15岁，（元气娘。表现活泼，精力充沛，精神良好的美丽年轻的女孩子。）有明暗双人格，因为在天界犯下大错，被流放人界完成历练，背景位置，隐藏强大的实力，灵魂管理局炽天使，多次暗中解救男主，暗人格为了早日回到天界。</span></p><p><span>TAG: 双人格差分</span><code></code><span>团子头封印</span><code></code><span>圣光矛</span><code></code><span>勋章裂痕</span><code></code><span>天使觉醒</span></p><p><span>	</span><span>• 平时冒失打翻麦酒，男主多次帮助 • 握剑后眼神判若两人</span></p></blockquote><ol start='6' ><li><p><strong><span>欧若拉</span></strong><span>「夜昙」(褐)</span></p></li></ol><blockquote><p><span>娼馆花魁，出场18岁，（腹黑，魅魔，看上去像小白一样很天真，但是实际骨子里是黑的）</span></p><p><span>从小被父母售卖，痛恨社会，痛恨家庭，却隐藏着渴望真实的被爱，第一次被卖给80老头，情急之下却发现自己拥有天然魅惑，可以指示意志力薄弱之人为其效劳，一直纯洁之身，天真外表，却喜欢愚弄乌合之众，手下众多，售卖情报，也有忠实粉丝。掌控春宵生意，与各个家族势力周旋。男主做过多次生意，而且男主也是不受控制的人之一。大家族以其父母为要挟，强行结合收入，被父母欺骗，对世界彻底失望，想要了解自我，被半路杀出来的男主拯救，彻底沦陷。</span></p><p><span>TAG： 魅魔尾尖</span><code></code><span>逆十字刺青</span><code></code><span>烟斗情报</span><code></code><span>信物项链</span><code></code><span>和服魅惑</span></p><p><span>	</span><span>• 用温柔话语套取秘密，转身冷漠记录情报 • 收集客人丢弃的信物</span></p></blockquote><ol start='7' ><li><p><strong><span>希露菲</span></strong><span> (青)</span></p></li></ol><blockquote><p><span>出场6岁，贫民窟小偷（软妹，撒娇，可爱，有爱心。用以喻指那些具备目光柔和，嗓音温婉，腰身柔软，性格温柔等外部特征）</span></p><p><span>从小失去双亲，却依靠自己天赋，偷窃苟活，自己唯一的伙伴一直狗被其他小孩子虐待，冲出去，被多次霸凌，天赋盗贼</span></p><p><span>TAG： 冲天辫</span><code></code><span>补丁背带裤</span><code></code><span>玩偶护身符</span><code></code><span>恐高发抖</span><code></code><span>创可贴细节</span></p><p><span>	</span><span>• 偷钱包给流浪狗买肉干 • 恐高却强迫自己攀爬钟楼</span></p></blockquote><ol start='8' ><li><p><strong><span>塞勒涅</span></strong><span>「鬼牌」(黑)</span></p></li></ol><blockquote><p><span>出场16岁，忍者，（黑长直，直女，热情，挚爱）</span></p><p><span>忍者村出身，父母同样为忍者，但是为皇室效力。14岁成年后，按照村子习俗，需要外出寻找侍主。但是由于头脑简单，心思单纯，被人一路欺骗，最后听闻妹妹被拐抓起来，于是找上赌场老板，为其效力，用忍术中的千术赚钱，赎买妹妹。但是头脑简单的她签下的契约利滚利却是无论如何都还不清的。时间一长也发现不对劲，于是暗中寻找线索，发现男主聪明才智，于是通过一些手段和男主达成一致，探索密室成功解救妹妹。</span></p><p><span>TAG：狐面赌具</span><code></code><span>契约烙印</span><code></code><span>苦无刻字</span><code></code><span>骰瞳特效</span><code></code><span>千术手势</span></p><p><span>	</span><span>• 赢钱时微笑计算赔率，输钱反而兴奋颤抖 • 妹妹受伤后不再流泪</span></p></blockquote><ol start='9' ><li><p><strong><span>露娜莉</span></strong><span> (黄)</span></p></li></ol><blockquote><p><span>出场13岁，经济管家（言行跳脱·神秘主义，电波女。兴致一来，做事可以轻松达到比预想还好的成果，但有时又会突然陷入郁郁寡欢的情境当中，常让人觉得很不可思议，也不知道内心在想什么。）</span></p><p><span>有些神经大条，对村里的忍术习俗完全不感兴趣，和姐姐同父异母，所以发色不同，但有不错的身手，和姐姐完全相反聪明的头脑，担心笨蛋姐姐被坏人利用，于是请用好朋友教廷骑士安洁莉卡做护卫，在地下赌场赌博，将赌场老板惊动，但有教廷骑士坐镇，实力悬殊，赌场经营权暂时被其掌控。将消息散播给姐姐，成功将姐姐保护起来。但是聪明反被聪明误，真的被抓了起来，被虐待，在将被强上危机时刻，男主出现。给她留下了难以磨灭的印象。在她的引导下，姐妹二人成功认男主为主。</span></p><p><span>TAG： 钻头卷发</span><code></code><span>电子算盘</span><code></code><span>金币瞳孔</span><code></code><span>失眠黑眼圈</span><code></code><span>价码袜带</span></p><p><strong><span>黄金的枷锁</span></strong><span>： • 用数学模型预测人命价格 • 失眠时反复擦硬币直至映出人脸</span></p></blockquote><ol start='10' ><li><p><strong><span>安洁莉卡</span></strong><span> (白)</span></p></li></ol><blockquote><p><span>出场12岁，教廷骑士（正义，沉稳，反差萌，萝莉体质，天然呆，看起来傻乎乎有点反应迟钝。知识或举止多少偏离一般常识的范围，但本人对此毫无自觉或没有察觉。）</span></p><p><span>按照约定每年一次一个月来找忍者二人组的妹妹，进行智力训练，却意外砸了男主的场子，以及上级派发的任务寻找“魔族宝珠”，看到其强大的实力，被男主哄骗为其效力，加上忍者二人组的助攻，让男主成功拿下收入麾下。</span></p><p><span>TAG： 吃货呆脸</span><code></code><span>草莓盾牌</span><code></code><span>光翼残魂</span><code></code><span>圣经食谱</span><code></code><span>尺寸反差</span></p><p><strong><span>熔铸的圣像</span></strong><span>： • 战斗时吟诵经文像机械，吃苹果派却会幸福眯眼 • 称天使残魂为“房客”</span></p></blockquote><ol start='11' ><li><p><strong><span>蕾欧娜</span></strong><span> (橙)</span></p></li></ol><blockquote><p><span>出场16岁，护卫（冰山，严肃人，认真，属性指动漫里面的人物给人的感觉很冷静沉着，而且有掉过头的冷漠。对人态度上，感觉她的语气很冷淡，不近人情...一副生人勿进的样子。）</span></p><p><span>看重男主强大的意志力，敬佩男主对朋友的关怀。暗中训练帮助男主恢复自由之身，在灭族事件中负责断后，被仇家抓捕关进牢狱，受到虐待，却未屈服。</span></p><p><span>TAG： 狼尾发型</span><code></code><span>亡妹发辫剑</span><code></code><span>踩碎项圈</span><code></code><span>刺青宣言</span><code></code><span>兽皮披风</span></p><p><strong><span>锈蚀的忠刃</span></strong><span>： • 对贵族命令绝对服从，却私下放走逃亡奴隶 • 剑柄缠亡妹的发辫</span></p></blockquote><ol start='12' ><li><p><strong><span>伊莎贝拉</span></strong><span> (白)</span></p></li></ol><blockquote><p><span>教会修女，出场18岁，（贤淑温柔大姐姐，体贴照顾），却被魔族洗脑，溃败与淫欲之下，腹部淫纹，为魔族效力供给女信徒</span></p><p><strong><span>纯白的暴雪</span></strong><span>： • 告解室温柔聆听，异端审判时灌沸银入耳 • 圣经内页贴满魔物解剖图</span></p><p><span>TAG： 撕裂头纱</span><code></code><span>沸银壶</span><code></code><span>魔物标本书签</span><code></code><span>竖瞳切换</span><code></code><span>吊带袜暗示</span></p></blockquote><ol start='13' ><li><p><strong><span>维罗妮卡</span></strong><span> (粉) </span></p></li></ol><blockquote><p><span>出场18岁，强势·高支配力，阿让托家族，女王，很有气势，能够独当一面，不成熟强势，有一定的能力凌驾于所有人之上的人。灭族事件设计人，为自己家族谋取利益，手段强硬。喜欢抓捕强大美女驯养，臣服于强大的异性。类似塞斯皇女，囚禁蕾欧娜，但有底线，不涉及毒和未成年。</span></p><p><span>TAG： 荆棘王冠</span><code></code><span>镶钻皮鞭</span><code></code><span>血绘纹章</span><code></code><span>牢笼钥匙</span><code></code><span>深V高开衩</span></p><p><strong><span>提线的蔷薇</span></strong><span>： • 被奴役后模仿主角青梅说话方式求怜惜 • 深夜用血在墙上画家族纹章</span></p></blockquote><ol start='14' ><li><p><strong><span>卡洛琳</span></strong><span> (银)</span></p></li></ol><blockquote><p><span>管家形象，阿让托家族，第一卫士，跟侍奉女王关系极其要好，为其可奉献一切，身材武力极其榜。</span></p><p><span>TAG： 机械义肢</span><code></code><span>怀表画像</span><code></code><span>战术束腰</span><code></code><span>刃跟战靴</span><code></code><span>单边护目镜</span></p><p><strong><span>甜美的陷阱</span></strong><span>： • 战斗时哼童谣 • 收集牢犯恐惧表情制成剪纸</span></p><ol start='15' ><li><p><span>大BOSS</span></p></li></ol><p><span>艾瑟拉（Athela） - 古德语“高贵的战士”\n</span></p><ol start='2' ><li><p><span>塞西莉娅（Cecilia） - 拉丁语“天空之歌”\n</span></p></li><li><ol start='3' ><li><p><span>伊芙琳（Evelyn） - 凯尔特语“生命之光”\n</span></p></li><li><ol start='4' ><li><p><span>吉安娜（Gianna） - 意大利变体“上帝的恩赐”\n</span></p></li><li><ol start='5' ><li><p><span>奥蕾莉亚（Aurelia） - 拉丁语“黄金般的”</span></p></li></ol></li></ol></li></ol></li><li><p><strong><span>莉瑞尔（Lirel）</span></strong><span> - 精灵风“星光舞者”</span></p></li><li><p><strong><span>塔薇拉（Tavira）</span></strong><span> - 吉普赛风“流浪的羽翼”</span></p></li><li><p><strong><span>菲奥娜（Fiona）</span></strong><span> - 凯尔特语“白色波浪”</span></p></li><li><p><strong><span>茜尔维（Sylvie）</span></strong><span> - 法语“森林之灵”</span></p></li><li><p><strong><span>梅莉丝（Meris）</span></strong><span> - 古英语“海洋之星”</span></p></li></ol></blockquote><h3 id='游戏系统与机制'><span>游戏系统与机制</span></h3><h6 id='战斗系统'><span>战斗系统</span></h6><blockquote><p><span>力量STR（攻击伤害，力气）, 体质：CON（血量，防御），速度SPE（回避，出手，命中</span><span>	</span><span>率），技巧：SKI（技能相关）</span></p></blockquote><h6 id='经济系统'><span>经济系统</span></h6><blockquote><p><span>赌博，地下竞技场赌博，酒馆打工，偷窃，娼馆买卖，拍卖会拍卖，金银铜币</span></p></blockquote><h6 id='回合制'><span>回合制</span></h6><blockquote><p><span>金木水火土，5个季节1年。设定一个回合周期1月，故事从7-8岁开始</span></p></blockquote><h6 id='养成类ui设计'><span>养成类(UI设计)</span></h6><blockquote><p><img src="C:\Users\26951\docs\09fa513d269759ee3d6d47a4baac54166d224f4a711f.webp" referrerpolicy="no-referrer" alt="09fa513d269759ee3d6d47a4baac54166d224f4a711f"></p><p>&nbsp;</p><p><img src="C:\Users\26951\docs\3c6d55fbb2fb43166d22591528f3512309f79052751f.webp" referrerpolicy="no-referrer" alt="3c6d55fbb2fb43166d22591528f3512309f79052751f"></p><h6 id='胜利目标'><span>胜利目标</span></h6><p><strong><span>最终战役：地下城崩坏</span></strong></p><ul><li><p><strong><span>魔将军阴谋</span></strong><span>：以火山城万人灵魂献祭唤醒魔王</span></p></li><li><p><strong><span>多层战场设计</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><strong><span>层数</span></strong></th><th style='text-align:left;' ><strong><span>挑战</span></strong></th><th style='text-align:left;' ><strong><span>关键角色</span></strong></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>B1</span></td><td style='text-align:left;' ><span>贵族私军+改造怪物</span></td><td style='text-align:left;' ><span>瑟琳娜政治镇压</span></td></tr><tr><td style='text-align:left;' ><span>B5</span></td><td style='text-align:left;' ><span>魔能反应炉（限时拆除）</span></td><td style='text-align:left;' ><span>薇拉魔法解析</span></td></tr><tr><td style='text-align:left;' ><span>B10</span></td><td style='text-align:left;' ><span>魔将军+仇人合体兽</span></td><td style='text-align:left;' ><span>全员决战</span></td></tr></tbody></table></figure></li></ul><p><span>### </span></p></blockquote><h3 id='1-露西亚紫罗兰紫）'><strong><span>1. 露西亚「紫罗兰」</span></strong><span>（紫）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：及腰淡紫卷发，刘海遮住右眼（隐藏自残伤痕）</span></p></li><li><p><strong><span>服装</span></strong><span>：破旧修女袍改制的紫色连衣裙，腰缠沾血绷带，手持镶嵌紫水晶的残破法杖</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>锁骨处有暗红色</span><strong><span>献祭符文</span></strong></p></li><li><p><span>脚踝拴着断裂的奴隶铁链</span></p></li><li><p><strong><span>病娇表情</span></strong><span>：平时温柔微笑，黑化时左眼泛起血光，嘴角撕裂般上扬</span></p></li></ul></li></ul><hr /><h3 id='2-瑟琳娜烈火蝶红）'><strong><span>2. 瑟琳娜「烈火蝶」</span></strong><span>（红）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：烈焰红双马尾+呆毛，发梢如火星飘散</span></p></li><li><p><strong><span>服装</span></strong><span>：黑金镶边贵族短裙，肩披熔岩纹披风，手持红宝石魔杖</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>傲娇时双马尾炸毛，害羞时发色转粉</span></p></li><li><p><span>腿袜故意穿不对称（左高右低），象征身份崩塌</span></p></li><li><p><span>颈链挂</span><strong><span>母亲遗骨吊坠</span></strong><span>（火魔法源）</span></p></li></ul></li></ul><hr /><h3 id='3-玛丽莎蝮蛇绿）'><strong><span>3. 玛丽莎「蝮蛇」</span></strong><span>（绿）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：毒绿色波波头，斜戴护目镜</span></p></li><li><p><strong><span>服装</span></strong><span>：皮质束腰药剂师套装，腰挂试管架，靴藏匕首</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>右臂缠绕活体</span><strong><span>吸血藤蔓“小绿”</span></strong></p></li><li><p><span>嘴角总叼着草药，眼神锐利如蛇</span></p></li><li><p><span>围裙口袋露出毒药（骷髅标）与解药（心形标）</span></p></li></ul></li></ul><hr /><h3 id='4-艾薇拉星瞳蓝）'><strong><span>4. 艾薇拉「星瞳」</span></strong><span>（蓝）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：冰蓝齐耳短发，头顶翘起一束呆毛</span></p></li><li><p><strong><span>服装</span></strong><span>： oversized魔法袍（遮住小手），悬浮魔典自动翻页</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><strong><span>三无脸</span></strong><span>：无表情但魔典用颜文字吐槽 (例：ಠ_ಠ)</span></p></li><li><p><span>袍下露出画本一角（封面《霸道魔王爱上我》）</span></p></li><li><p><span>瞳孔呈齿轮状（解析魔法时转动）</span></p></li></ul></li></ul><hr /><h3 id='5-爱丽丝金）'><strong><span>5. 爱丽丝</span></strong><span>（金）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：金色长卷发扎成双团子（伪装用），觉醒后散发如圣光</span></p></li><li><p><strong><span>服装</span></strong><span>：女仆装+围裙，裙下藏白金腿甲</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>冒失娘态：围裙沾果酱，头顶茶杯</span></p></li><li><p><strong><span>炽天使态</span></strong><span>：团子发簪变剑形，手持光矛，瞳孔熔金色</span></p></li><li><p><span>把</span><strong><span>教会勋章</span></strong><span>当胸针（实际是封印器）</span></p></li></ul></li></ul><hr /><h3 id='6-欧若拉夜昙褐）'><strong><span>6. 欧若拉「夜昙」</span></strong><span>（褐）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：巧克力卷发，别朵枯萎夜昙花</span></p></li><li><p><strong><span>服装</span></strong><span>：半透纱质和服，腰束锁链装饰</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>魅魔象征：桃心尾尖，踝部逆十字刺青</span></p></li><li><p><strong><span>情报网</span></strong><span>：手持烟斗吐出的烟形成客人面容</span></p></li><li><p><span>颈饰串着</span><strong><span>客人信物</span></strong><span>（戒指/纽扣）</span></p></li></ul></li></ul><hr /><h3 id='7-希露菲青）'><strong><span>7. 希露菲</span></strong><span>（青）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：青灰色短发，扎冲天辫</span></p></li><li><p><strong><span>服装</span></strong><span>：补丁背带裤，腰挂工具包，背简易短弓</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>怀中紧抱破烂小狗玩偶</span></p></li><li><p><span>膝盖贴满创可贴（攀爬受伤）</span></p></li><li><p><strong><span>恐高反应</span></strong><span>：站在高处时脚踝发抖特效</span></p></li></ul></li></ul><hr /><h3 id='8-塞勒涅鬼牌黑）'><strong><span>8. 塞勒涅「鬼牌」</span></strong><span>（黑）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：黑长直高马尾，斜戴狐狸面具</span></p></li><li><p><strong><span>服装</span></strong><span>：露肩忍者装，腿绑苦无袋，手持赌盅</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><strong><span>赌狂态</span></strong><span>：输钱时眼中浮现骰子虚影</span></p></li><li><p><span>后背烙印</span><strong><span>欺诈契约</span></strong><span>（血爪商会徽章）</span></p></li><li><p><span>苦无柄刻“妹”字（莉娜莉的昵称）</span></p></li></ul></li></ul><hr /><h3 id='9-露娜莉黄）'><strong><span>9. 露娜莉</span></strong><span>（黄）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：亮黄双螺旋钻头卷，发丝带电光</span></p></li><li><p><strong><span>服装</span></strong><span>：金属感未来风制服，悬浮电子算盘环绕</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>瞳孔显示</span><strong><span>金币符号</span></strong><span>（计算模式）</span></p></li><li><p><span>失眠黑眼圈，手指不停摩挲古银币</span></p></li><li><p><span>袜带别满竞技场</span><strong><span>人命价码牌</span></strong></p></li></ul></li></ul><hr /><h3 id='10-安洁莉卡白）'><strong><span>10. 安洁莉卡</span></strong><span>（白）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：银白姬发式，头顶呆毛如天使光环</span></p></li><li><p><strong><span>服装</span></strong><span>：迷你版圣骑士铠，盾牌刻草莓图案</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><strong><span>反差萌</span></strong><span>：战斗时扑克脸，吃苹果派时腮帮鼓胀</span></p></li><li><p><span>天使残魂具现为背后</span><strong><span>半透明光翼</span></strong></p></li><li><p><span>圣剑剑格藏</span><strong><span>苹果派食谱</span></strong></p></li></ul></li></ul><hr /><h3 id='11-蕾欧娜橙）'><strong><span>11. 蕾欧娜</span></strong><span>（橙）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：橙红狼尾短发，额角刀疤</span></p></li><li><p><strong><span>服装</span></strong><span>：重甲仅护要害，肩披兽皮，巨剑缠染血布条</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>剑柄编织</span><strong><span>亡妹发辫</span></strong><span>（每杀一敌增一缕）</span></p></li><li><p><span>铁靴踩碎奴隶项圈（象征反抗）</span></p></li><li><p><span>背肌刺青“</span><strong><span>不跪者生</span></strong><span>”（家族信条）</span></p></li></ul></li></ul><hr /><h3 id='12-伊莎贝拉白）'><strong><span>12. 伊莎贝拉</span></strong><span>（白）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：铂金长直发，修女头纱半掩</span></p></li><li><p><strong><span>服装</span></strong><span>：高领修女袍，裙摆裂口露出吊带袜</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><strong><span>腹黑双面</span></strong><span>：</span></p><ul><li><p><span>圣洁态：手持银十字，微笑治愈</span></p></li><li><p><span>审判态：眼罩滑落露</span><strong><span>魔化竖瞳</span></strong><span>，持沸银壶</span></p></li></ul></li><li><p><span>圣经书页夹着</span><strong><span>魔物器官标本</span></strong></p></li></ul></li></ul><hr /><h3 id='13-维罗妮卡粉）'><strong><span>13. 维罗妮卡</span></strong><span>（粉）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：粉紫大波浪，戴荆棘王冠</span></p></li><li><p><strong><span>服装</span></strong><span>：深V高开衩女王裙，腰缠镶钻皮鞭</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><strong><span>驯养癖</span></strong><span>：项圈锁链牵住蕾欧娜（CG差分）</span></p></li><li><p><span>指甲涂鸦家族纹章（焦虑时抠刮至流血）</span></p></li><li><p><span>腿环挂牢笼钥匙（囚禁美女用）</span></p></li></ul></li></ul><hr /><h3 id='14-卡洛琳银）'><strong><span>14. 卡洛琳</span></strong><span>（银）</span></h3><p><strong><span>外貌</span></strong><span>：</span></p><ul><li><p><strong><span>发型</span></strong><span>：银灰高马尾，单边护目镜</span></p></li><li><p><strong><span>服装</span></strong><span>：女管家西装+战术束腰，手套藏飞刀</span></p></li><li><p><strong><span>细节</span></strong><span>：</span></p><ul><li><p><span>机械义肢（左臂），关节喷蒸汽</span></p></li><li><p><span>胸口别</span><strong><span>怀表</span></strong><span>（内藏维罗妮卡小像）</span></p></li><li><p><span>战靴跟弹出</span><strong><span>刀刃</span></strong><span>（应急刺杀）</span></p></li></ul></li></ul></div></div>
+</body>
+</html>
